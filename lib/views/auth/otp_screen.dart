@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:user_manager/controllers/auth_controller.dart';
 
 class OtpScreen extends StatelessWidget {
@@ -9,6 +10,7 @@ class OtpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authController = Provider.of<AuthController>(context, listen: false);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -26,7 +28,7 @@ class OtpScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                AuthController().verifyOTP(
+                authController.verifyOTP(
                   context: context,
                   verificationId: verificationId,
                   otpSent: _otpController.text,

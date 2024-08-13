@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
+import 'package:user_manager/controllers/auth_controller.dart';
+import 'package:user_manager/controllers/user_controller.dart';
 import 'package:user_manager/utils/constants.dart';
+import 'package:user_manager/views/home/add_user_screen.dart';
 import 'package:user_manager/views/home/home_screen.dart';
-import 'controllers/auth_controller.dart';
 import 'views/auth/login_screen.dart';
 
 void main() async {
@@ -25,17 +27,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'User Management',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthController()),
+        ChangeNotifierProvider(create: (_) => UserController()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'User Management',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        initialRoute: '/home',
+        routes: {
+          '/': (context) =>  LoginScreen(),
+          '/home': (context) =>  const HomeScreen(),
+          '/add-user':(context) => AddUserScreen()
+        },
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) =>  LoginScreen(),
-        '/home': (context) => const HomeScreen(),
-        // Other routes here
-      },
     );
   }
 }
