@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:user_manager/controllers/user_controller.dart';
+import 'package:user_manager/views/home/add_user_screen.dart';
 import 'package:user_manager/views/widgets/user_list_item.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -29,7 +30,12 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/add-user');
+          showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              builder: (BuildContext context) {
+                return AddUserScreen();
+              });
         },
         child: const Icon(Icons.add),
       ),

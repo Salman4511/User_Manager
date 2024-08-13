@@ -1,9 +1,16 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:user_manager/models/user_model.dart';
 import 'package:user_manager/services/user_service.dart';
 
 class UserController with ChangeNotifier {
   List<UserModel> _userList = [];
+  File? image;
+  final ImagePicker _picker = ImagePicker();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController ageController = TextEditingController();
 
   List<UserModel> get userList => _userList;
 
@@ -23,4 +30,23 @@ class UserController with ChangeNotifier {
     }).toList();
     notifyListeners();
   }
+
+  Future<void> pickImage() async {
+    final pickedImage = await _picker.pickImage(source: ImageSource.gallery);
+    if (pickedImage != null) {
+      image = File(pickedImage.path);
+      notifyListeners();
+    }
+  }
+
+   void clearImage() {
+    image = null;
+    notifyListeners();
+  }
+
+  void clearControllers() {
+    nameController.clear();
+    ageController.clear();
+  }
+
 }
