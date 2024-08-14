@@ -10,12 +10,35 @@ class UserListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: CircleAvatar(
-        backgroundImage: FileImage(File(user.imageUrl)),
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
       ),
-      title: Text(user.name),
-      subtitle: Text('Age: ${user.age}'),
+      elevation: 3,
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      child: Container(
+        height: 90,
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: ListTile(
+          leading: CircleAvatar(
+            backgroundImage: FileImage(File(user.imageUrl)),
+            radius: 35,
+          ),
+          title: Text(
+            user.name,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+          ),
+          subtitle: Text(
+            'Age: ${user.age}',
+            style: const TextStyle(
+              fontSize: 14,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

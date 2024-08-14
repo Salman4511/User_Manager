@@ -65,7 +65,7 @@ class AuthRepository {
     await _auth.signOut().then((value) {
       Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) =>  LoginScreen()),
+        MaterialPageRoute(builder: (context) => LoginScreen()),
         (route) => false,
       );
     });

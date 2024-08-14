@@ -4,17 +4,15 @@ import 'package:user_manager/models/user_model.dart';
 class UserService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-
   Future<List<UserModel>> getUsers() async {
     QuerySnapshot snapshot = await _firestore.collection('users').get();
 
-    print(
-        "Documents fetched: ${snapshot.docs.length}"); // Log the number of documents fetched
+    print("Documents fetched: ${snapshot.docs.length}");
 
     return snapshot.docs.map((doc) {
       final data = doc.data() as Map<String, dynamic>?;
 
-      print("Document data: $data"); // Log the document data
+      print("Document data: $data");
 
       if (data != null) {
         return UserModel.fromJson(data);

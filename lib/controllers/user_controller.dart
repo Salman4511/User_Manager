@@ -31,6 +31,24 @@ class UserController with ChangeNotifier {
     notifyListeners();
   }
 
+  void sortUsersByAgeOlder() {
+    _userList.sort((a, b) {
+      if (a.age > 60 && b.age <= 60) return -1;
+      if (a.age <= 60 && b.age > 60) return 1;
+      return b.age.compareTo(a.age);
+    });
+    notifyListeners();
+  }
+
+  void sortUsersByAgeYounger() {
+    _userList.sort((a, b) {
+      if (a.age <= 60 && b.age > 60) return -1;
+      if (a.age > 60 && b.age <= 60) return 1;
+      return a.age.compareTo(b.age);
+    });
+    notifyListeners();
+  }
+
   Future<void> pickImage() async {
     final pickedImage = await _picker.pickImage(source: ImageSource.gallery);
     if (pickedImage != null) {
@@ -39,7 +57,7 @@ class UserController with ChangeNotifier {
     }
   }
 
-   void clearImage() {
+  void clearImage() {
     image = null;
     notifyListeners();
   }
@@ -48,5 +66,4 @@ class UserController with ChangeNotifier {
     nameController.clear();
     ageController.clear();
   }
-
 }

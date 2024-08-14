@@ -26,7 +26,7 @@ class LoginScreen extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Text(
                 "Enter Phone Number",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: Constants.ktextStyle1,
               ),
             ),
             Constants.kheight20,
@@ -46,8 +46,7 @@ class LoginScreen extends StatelessWidget {
                   const Text(
                     "By continuing, I agree to TotalX's",
                     textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.grey, fontWeight: FontWeight.bold),
+                    style: Constants.ktextStyle2,
                   ),
                   TextButton(
                       onPressed: () {
@@ -56,14 +55,13 @@ class LoginScreen extends StatelessWidget {
                       child: const Text(
                         "Terms & Condition",
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Constants.kblue,
                         ),
                       )),
                   const Text(
                     "&",
                     textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.grey, fontWeight: FontWeight.bold),
+                    style: Constants.ktextStyle2,
                   ),
                 ],
               ),
@@ -78,7 +76,7 @@ class LoginScreen extends StatelessWidget {
                         "Privacy Policy",
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Constants.kblue,
                         ),
                       )),
                 ),
@@ -93,14 +91,7 @@ class LoginScreen extends StatelessWidget {
                   authController.loginWithPhoneNumber(
                       _phoneController.text, context);
                 },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.black),
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                  ),
-                ),
+                style: Constants.kbuttonStyle1,
                 child: const Text("Get OTP"),
               ),
             )

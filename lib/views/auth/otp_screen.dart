@@ -37,17 +37,14 @@ class OtpScreen extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "OTP verification",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: Constants.ktextStyle1,
                 ),
               ),
               Constants.kheight20,
               const Text(
                 "Enter the verification code we just send to your number +91*****21",
                 textAlign: TextAlign.left,
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16),
+                style: Constants.ktextStyle3,
               ),
               Constants.kheight20,
               Pinput(
@@ -55,14 +52,14 @@ class OtpScreen extends StatelessWidget {
                     width: 55,
                     height: 60,
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
+                      border: Border.all(color: Constants.kgrey),
                       borderRadius: BorderRadius.circular(10),
                     )),
                 focusedPinTheme: PinTheme(
                     width: 55,
                     height: 60,
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black),
+                      border: Border.all(color: Constants.kblack),
                       borderRadius: BorderRadius.circular(10),
                     )),
                 length: 6,
@@ -74,7 +71,7 @@ class OtpScreen extends StatelessWidget {
                   style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Colors.red)),
+                      color: Constants.kred)),
               Constants.kheight20,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -105,14 +102,7 @@ class OtpScreen extends StatelessWidget {
                       otpSent: _otpController.text,
                     );
                   },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.black),
-                    shape: MaterialStateProperty.all(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                    ),
-                  ),
+                  style: Constants.kbuttonStyle1,
                   child: const Text("Verify"),
                 ),
               )

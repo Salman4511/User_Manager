@@ -20,6 +20,20 @@ class Constants {
   //Colors
 
   static const kwhite = Colors.white;
+  static const kblack = Colors.black;
+  static const kblue = Colors.blue;
+  static const kgrey = Colors.grey;
+  static const kred = Colors.red;
 
+ //TextStyles
+
+  static const TextStyle ktextStyle1 = TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
+  static const TextStyle ktextStyle2 = TextStyle(color: Constants.kgrey, fontWeight: FontWeight.bold);
+  static const TextStyle ktextStyle3 = TextStyle(color: Constants.kgrey,fontWeight: FontWeight.bold,fontSize: 16);
+
+//ButtonStyles
+
+  static  ButtonStyle kbuttonStyle1 =  ButtonStyle(backgroundColor: MaterialStateProperty.all(Constants.kblack),shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(25),),),);
+                
 
 }

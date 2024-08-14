@@ -5,7 +5,6 @@ import 'package:user_manager/models/user_model.dart';
 import 'package:user_manager/utils/constants.dart';
 
 class AddUserScreen extends StatelessWidget {
-  
   const AddUserScreen({super.key});
 
   @override
@@ -18,7 +17,7 @@ class AddUserScreen extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16.0),
         decoration: const BoxDecoration(
-          color: Colors.white,
+          color: Constants.kwhite,
           borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
         ),
         child: Column(
@@ -27,7 +26,7 @@ class AddUserScreen extends StatelessWidget {
           children: [
             const Text(
               "Add a New User",
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: Constants.ktextStyle1,
             ),
             Constants.kheight20,
             Consumer<UserController>(
@@ -45,7 +44,8 @@ class AddUserScreen extends StatelessWidget {
                           : const AssetImage('assets/images/image.png')
                               as ImageProvider,
                       child: image == null
-                          ? const Icon(Icons.camera_alt, color: Colors.white)
+                          ? const Icon(Icons.camera_alt,
+                              color: Constants.kwhite)
                           : null,
                     ),
                   ),
@@ -76,11 +76,9 @@ class AddUserScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 ElevatedButton(
-                  onPressed: () {
-                    
-                  },
+                  onPressed: () {},
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.grey),
+                    backgroundColor: MaterialStateProperty.all(Constants.kgrey),
                     shape: MaterialStateProperty.all(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),

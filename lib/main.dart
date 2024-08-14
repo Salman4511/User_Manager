@@ -41,12 +41,12 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: '/home',
+        initialRoute: '/',
         routes: {
           '/': (context) =>  LoginScreen(),
           '/home': (context) =>  const HomeScreen(),
           '/otp-screen': (context) => OtpScreen(verificationId: ''),
-          '/add-user':(context) => AddUserScreen()
+          '/add-user':(context) => const AddUserScreen()
         },
       ),
     );
